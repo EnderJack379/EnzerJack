@@ -1,0 +1,213 @@
+/* Variables CSS para una paleta de colores consistente */
+:root {
+  --primary-bg: #f4f4f9; /* Fondo principal claro */
+  --secondary-bg: #ffffff; /* Fondo blanco para secciones */
+  --header-footer-bg: #2c3e50; /* Fondo oscuro para cabecera y pie de página */
+  --text-dark: #34495e; /* Texto oscuro principal */
+  --text-light: #ecf0f1; /* Texto claro */
+  --accent-color: #e74c3c; /* Color de acento (rojo) */
+  --border-color: #bdc3c7; /* Color de borde sutil */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra suave */
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --border-radius: 8px;
+  --transition-speed: 0.3s ease;
+}
+
+.layout {
+  display: grid;
+  height: 100vh;
+  background-color: var(--primary-bg); /* Fondo general de la página */
+  grid-template-areas:
+    "header header"
+    "topnav topnav"
+    "nav    main"
+    "footer footer";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 80px auto 1fr 140px;
+  gap: var(--spacing-sm); /* Espacio entre las áreas del grid */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
+}
+
+/* Header */
+.header {
+  grid-area: header;
+  background-color: var(--header-footer-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--spacing-md);
+  color: var(--text-light);
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--text-light);
+}
+
+.header .logo { /* Asumiendo que hay un elemento con clase 'logo' dentro del header */
+  height: 60px;
+  width: auto;
+}
+
+.header .logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Menú horizontal */
+.top-nav {
+  grid-area: topnav;
+  background-color: var(--secondary-bg);
+  padding: var(--spacing-sm) 0;
+  box-shadow: 0 1px 3px var(--shadow-color);
+}
+.top-nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0; /* Eliminar padding por defecto del ul */
+}
+.top-nav li {
+  margin: 0 var(--spacing-sm);
+}
+.top-nav a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+.top-nav a:hover {
+  background-color: var(--accent-color);
+  color: var(--text-light);
+}
+
+/* Menú vertical */
+.nav {
+  grid-area: nav;
+  background-color: var(--secondary-bg);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; /* Eliminar padding por defecto del ul */
+}
+.nav li {
+  margin-bottom: var(--spacing-sm);
+}
+.nav a {
+  text-decoration: none;
+  color: var(--text-dark);
+  display: block; /* Para que el padding y hover ocupen todo el ancho */
+  padding: 8px 10px;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+.nav a:hover {
+  background-color: var(--accent-color);
+  color: var(--text-light);
+}
+
+/* Main y productos */
+.main {
+  grid-area: main;
+  background-color: var(--secondary-bg);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+.product-container {
+  display: grid; /* Usamos Grid para un control más preciso de la cuadrícula */
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Columnas responsivas */
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm);
+  justify-items: center; /* Centra las tarjetas horizontalmente */
+}
+.product-card {
+  width: 220px; /* Ancho fijo para las tarjetas */
+  text-align: center;
+  text-decoration: none;
+  margin: 0; /* El gap se encarga del espaciado */
+  background-color: var(--primary-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-sm);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.product-card:hover {
+  transform: translateY(-5px); /* Efecto "levantar" al pasar el mouse */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.product-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.product-card h3 { /* Asumiendo que el título del producto es un h3 */
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin: var(--spacing-sm) 0;
+}
+
+.product-card p { /* Asumiendo que la descripción del producto es un p */
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Footer */
+.footer {
+  grid-area: footer;
+  background-color: var(--header-footer-bg);
+  color: var(--text-light);
+  padding: var(--spacing-md) 0;
+  box-shadow: 0 -2px 5px var(--shadow-color);
+}
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 var(--spacing-md);
+  flex-wrap: wrap; /* Permite que el contenido se ajuste en pantallas pequeñas */
+}
+.footer-section h4 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--accent-color); /* Color de acento para los títulos del footer */
+  font-size: 1.1rem;
+}
+.footer-section ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.footer-section ul li {
+  margin-bottom: 5px;
+}
+.footer-section a {
+  text-decoration: none;
+  color: var(--text-light);
+  transition: color var(--transition-speed);
+}
+.footer-section a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+.footer-credit {
+  text-align: center;
+  padding: var(--spacing-sm) 0;
+  background-color: rgba(0, 0, 0, 0.2); /* Un fondo ligeramente más oscuro */
+  font-size: 0.9em;
+  margin-top: var(--spacing-sm); /* Espacio entre el contenido y el crédito */
+}

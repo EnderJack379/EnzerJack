@@ -10,7 +10,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import theme from './assets/components/theme.js';
+import theme from '../src/components/theme';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

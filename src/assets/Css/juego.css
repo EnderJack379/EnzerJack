@@ -1,12 +1,24 @@
 .juego-container {
-  /* Uso de variables globales con fallbacks locales */
+  /* --- Variables locales para el componente --- */
+  --juego-bg-start: #6a11cb;
+  --juego-bg-end: #2575fc;
+  --juego-text-color: #ffffff;
+  --juego-shadow-color: rgba(0, 0, 0, 0.2);
+  --juego-input-bg: rgba(0, 0, 0, 0.2);
+  --juego-input-border: rgba(255, 255, 255, 0.3);
+  --juego-input-focus-border: #a78bfa; /* Un morado claro para el foco */
+  --juego-btn-primary-bg: #3b82f6;
+  --juego-btn-primary-hover: #2563eb;
+  --juego-btn-danger-bg: #ef4444;
+  --juego-btn-danger-hover: #dc2626;
+
   padding: 20px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--accent-start, #6a11cb) 0%, var(--accent-end, #2575fc) 100%);
-  color: var(--text-color, white);
+  border-radius: 12px; /* Un poco más redondeado */
+  background: linear-gradient(135deg, var(--juego-bg-start) 0%, var(--juego-bg-end) 100%);
+  color: var(--juego-text-color);
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  box-shadow: 0 8px 16px var(--shadow-color, rgba(0,0,0,0.3));
+  box-shadow: 0 8px 24px var(--juego-shadow-color);
 }
 
 .juego-container h1 {
@@ -30,20 +42,22 @@
 }
 
 .number-input {
-  padding: 8px 10px;
-  border: 1px solid var(--border-color, #cccccc);
+  padding: 10px 12px;
+  border: 1px solid var(--juego-input-border);
   border-radius: 6px;
   width: 100%; /* Ocupa el ancho disponible */
   max-width: 200px; /* Pero no más de 200px en pantallas grandes */
   font-size: 16px;
   text-align: center;
   transition: all 0.3s ease;
+  background-color: var(--juego-input-bg);
+  color: var(--juego-text-color);
 }
 
 .number-input:focus {
   outline: none;
-  border-color: var(--input-focus-border, #3b82f6);
-  box-shadow: 0 0 8px rgba(59,130,246,0.5);
+  border-color: var(--juego-input-focus-border);
+  box-shadow: 0 0 8px rgba(167, 139, 250, 0.5);
 }
 
 .btn {
@@ -58,22 +72,28 @@
 }
 
 .primary-btn {
-  background-color: var(--primary-color, #3b82f6);
-  color: var(--text-color, white);
+  background-color: var(--juego-btn-primary-bg);
+  color: var(--juego-text-color);
 }
 .primary-btn:hover {
-  background-color: var(--primary-hover-color, #2563eb);
+  background-color: var(--juego-btn-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px var(--shadow-color, rgba(0,0,0,0.2));
+  box-shadow: 0 4px 8px var(--juego-shadow-color);
 }
 .danger-btn {
-  background-color: var(--danger-color, #ef4444);
-  color: var(--text-color, white);
+  background-color: var(--juego-btn-danger-bg);
+  color: var(--juego-text-color);
 }
 .danger-btn:hover {
-  background-color: var(--danger-hover-color, #dc2626);
+  background-color: var(--juego-btn-danger-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px var(--shadow-color, rgba(0,0,0,0.2));
+  box-shadow: 0 4px 8px var(--juego-shadow-color);
+}
+
+.btn:active {
+  /* Efecto al hacer clic para mejor feedback */
+  transform: translateY(0);
+  box-shadow: 0 2px 4px var(--juego-shadow-color);
 }
 
 .feedback {
@@ -81,6 +101,18 @@
   min-height: 40px; /* evita saltos de layout cuando aún no hay mensaje */
   font-size: 1.1rem;
   font-weight: 500;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --- Media Query para Responsividad --- */

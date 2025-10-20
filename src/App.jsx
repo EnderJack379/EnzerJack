@@ -1,15 +1,15 @@
 import { Routes, Route } from 'react-router-dom';
-import Layout from './assets/Pages/Layout';
-import Home from './assets/Pages/Home';
+import Layout from './Pages/Layout.jsx';
+import Home from './Pages/Home';
 //import ProyectoHtml1 from './assets/Pages/ProyectoHtml1.jsx';
-import Games from './assets/Pages/Games';
-import AboutUs from './assets/Pages/AboutUs';
-import Error from './assets/Pages/Error';
-import Proyecto2 from './assets/Pages/Proyecto2';
-import PetRegistry from './assets/RegistroMascotas/PetRegistry';
-import Proyecto01 from './assets/Pages/Proyecto01';
-import Proyecto4 from './assets/Pages/Proyecto4';
-import Formulario from './assets/components/formulario.jsx';
+import Games from './Pages/Games';
+import AboutUs from './Pages/AboutUs';
+import Error from './Pages/Error';
+import Proyecto2 from './Pages/Proyecto2';
+import PetRegistry from './components/PetRegistry.jsx';
+import Proyecto01 from './Pages/Proyecto01';
+import Proyecto4 from './Pages/Proyecto4';
+import Formulario from './components/formulario.jsx';
 
 function App() {
   return (
